@@ -5,7 +5,7 @@ on:
     branches: [master, develop]
 
 jobs:
-  deploy:
+  test_on_pull_request:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,6 +15,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 17.x
-      - run: npm install
+      - run: npm ci
       - run: npm test
       - run: npm run build --if-present
